@@ -1,5 +1,5 @@
 ---
-tags: [tooling, dprint, just, cargo-deny, formatting]
+tags: [ tooling, rust, dprint, just, cargo-deny, formatting ]
 ---
 
 # Project Tooling
