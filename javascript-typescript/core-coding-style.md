@@ -50,7 +50,7 @@ Use these conventions every time when project rules are unclear or not enforced.
 
 ## Imports
 
-- Always prefix Node.js internals with the `node:` prefix
+- Always prefix Node.js inte[core-coding-style.md](core-coding-style.md)rnals with the `node:` prefix
 - Relative imports via the shortest path
 - Never import packages via relative paths
 - Type-only imports with `type` keyword
