@@ -10,13 +10,15 @@ tags: [conventions, git, licensing, rust, compiling]
 
 ## Licensing
 
-Dual MIT/Apache-2.0 (Rust ecosystem convention). Both `LICENSE-MIT` and `LICENSE-APACHE` files in the
-repo root. `license = "MIT OR Apache-2.0"` in Cargo.toml.
+Dual MIT/Apache-2.0 (Rust ecosystem convention). Both `LICENSE-MIT` and
+`LICENSE-APACHE` files in the repo root. `license = "MIT OR Apache-2.0"` in
+Cargo.toml.
 
 ## Edition and MSRV
 
 - Rust 2024 edition (`edition = "2024"` in Cargo.toml).
-- MSRV pinned via `rust-version = "1.85"` in Cargo.toml and `rust-toolchain.toml`.
+- MSRV pinned via `rust-version = "1.85"` in Cargo.toml and
+  `rust-toolchain.toml`.
 - Edition updates are intentional and tested — not adopted automatically.
 
 ## Release profile

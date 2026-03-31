@@ -6,9 +6,9 @@ tags: [rust, clippy, linting, code-quality]
 
 ## Approach: warn locally, deny in CI
 
-Enable pedantic at warn level in `Cargo.toml` with priority -1, then selectively allow noisy lints.
-CI runs `cargo clippy --all-targets -- -D warnings` so pedantic lints block merges but don't break
-local iteration.
+Enable pedantic at warn level in `Cargo.toml` with priority -1, then selectively
+allow noisy lints. CI runs `cargo clippy --all-targets -- -D warnings` so
+pedantic lints block merges but don't break local iteration.
 
 ```toml
 [lints.clippy]
@@ -29,9 +29,10 @@ must_use_candidate = "allow"
 
 ## Unsafe code policy
 
-`unsafe_code = "deny"` globally in `[lints.rust]`. When FFI requires unsafe (e.g., sqlite-vec
-registration via `sqlite3_auto_extension`), use a targeted `#[allow(unsafe_code)]` on the smallest
-possible function with a `// SAFETY:` comment explaining the invariant.
+`unsafe_code = "deny"` globally in `[lints.rust]`. When FFI requires unsafe
+(e.g., sqlite-vec registration via `sqlite3_auto_extension`), use a targeted
+`#[allow(unsafe_code)]` on the smallest possible function with a `// SAFETY:`
+comment explaining the invariant.
 
 ```rust
 #[allow(unsafe_code)]
