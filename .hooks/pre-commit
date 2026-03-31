@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+# Format-check staged markdown files with dprint
+staged_md=$(git diff --cached --name-only --diff-filter=ACM -- '*.md')
+
+if [ -n "$staged_md" ]; then
+  dprint check $staged_md
+  if [ $? -ne 0 ]; then
+    echo ""
+    echo "Markdown formatting issues found. Run 'dprint fmt' to fix."
+    exit 1
+  fi
+fi
