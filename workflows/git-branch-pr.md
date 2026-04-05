@@ -1,8 +1,8 @@
 ---
-tags: [ conventions, git, commit, push, branch, pull-request ]
+tags: [conventions, git, commit, push, branch, pull-request, merge, ownership]
 ---
 
-# Workflow conventions
+# Workflow Conventions
 
 ## Git workflow
 
@@ -58,6 +58,20 @@ These apply when no overriding project-level conventions are in place.
 - When linking to code, always use SHA-pinned blob URLs.
 - Once a PR is merged, fetch with prune, and delete the branch and worktree (if
   present) locally.
+
+## Merge ownership
+
+Only the repository owner merges pull requests. Never merge a PR or push directly to `main`
+unless the owner explicitly instructs you to do so. When in doubt, leave the PR as a draft and
+ask.
+
+**Why:** During an early session, an agent pushed commits directly to `main`, which auto-closed
+a draft PR the owner wanted to review and merge themselves. The owner lost control over the
+merge and the review workflow.
+
+**How to apply:** When your work is ready, open or update a draft PR and notify the owner. Do
+not mark it ready for review, merge it, or push to `main`. If you are already on `main` with
+new commits, create a branch from HEAD before pushing, and only push the feature branch.
 
 ### Marking Dependencies in PR descriptions
 
