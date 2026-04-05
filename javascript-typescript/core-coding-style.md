@@ -8,6 +8,7 @@ Use these conventions every time when project rules are unclear or not enforced.
 
 ## Formatting
 
+- Respect `/.editorconfig`, `/.prettierrc.yml` or `dprint.json` if present
 - Omit curly braces for single-line blocks
 - Add an empty line after a block except for the last one (even if it doesn't
   have curlies)
@@ -58,8 +59,7 @@ Use these conventions every time when project rules are unclear or not enforced.
 
 ## Imports
 
-- Always prefix Node.js inte[core-coding-style.md](core-coding-style.md)rnals
-  with the `node:` prefix
+- Always prefix Node.js internals with the `node:` prefix
 - Relative imports via the shortest path
 - Never import packages via relative paths
 - Type-only imports with `type` keyword
@@ -107,7 +107,3 @@ Use these conventions every time when project rules are unclear or not enforced.
 - Keep declarative lists alphabetically sorted: object keys in config maps,
   environment variables, enum members, union type members, and similar
   enumerations
-
-## Formatting
-
-- Respect `/.editorconfig`, `/.prettierrc.yml` or `dprint.json` if present

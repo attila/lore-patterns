@@ -1,29 +1,24 @@
 ---
-tags: [conventions, git, licensing, rust, compiling]
+tags: [conventions, rust, licensing, edition, msrv, release, binary-size]
 ---
 
-# Project Conventions
-
-## Git workflow
-
-- Pre-commit hook runs `dprint check` to catch formatting issues before push.
-
-## Licensing
-
-Dual MIT/Apache-2.0 (Rust ecosystem convention). Both `LICENSE-MIT` and
-`LICENSE-APACHE` files in the repo root. `license = "MIT OR Apache-2.0"` in
-Cargo.toml.
+# Rust Project Conventions
 
 ## Edition and MSRV
 
-- Rust 2024 edition (`edition = "2024"` in Cargo.toml).
-- MSRV pinned via `rust-version = "1.85"` in Cargo.toml and
-  `rust-toolchain.toml`.
-- Edition updates are intentional and tested — not adopted automatically.
+Set `edition = "2024"` in Cargo.toml. Pin the minimum supported Rust version via
+`rust-version = "1.85"` in Cargo.toml and in `rust-toolchain.toml`. Never adopt
+a new edition automatically — edition updates are intentional and tested.
+
+## Licensing
+
+Use dual MIT/Apache-2.0 licensing (Rust ecosystem convention). Include both
+`LICENSE-MIT` and `LICENSE-APACHE` files in the repository root. Set
+`license = "MIT OR Apache-2.0"` in Cargo.toml.
 
 ## Release profile
 
-Optimise for small binary sizes:
+Optimise release builds for small binary sizes:
 
 ```toml
 [profile.release]
@@ -31,3 +26,7 @@ strip = true
 lto = true
 opt-level = "z"
 ```
+
+Always set all three options together. `strip` removes debug symbols, `lto`
+enables link-time optimisation across crates, and `opt-level = "z"` prioritises
+size over speed.
