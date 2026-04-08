@@ -1,5 +1,5 @@
 ---
-tags: [ agent, unattended, command, bash, composite, git, gh ]
+tags: [ agent, unattended, command, bash, composite, git, gh, pnpm, typescript ]
 ---
 
 # Unattended Work
@@ -27,8 +27,14 @@ manner.
 - Only use the `gh` CLI if available
 - When creating PRs with `gh pr create`, use `--body-file /tmp/pr-body.md`
   instead of `--body` with inline strings or heredocs. Write the body to a tmp
-  file first, then reference it. Inline and heredoc approaches get blocked by
-  permission settings.
+  file first, then reference it.
+
+  > **Why not heredocs?** The Claude Code system prompt shows a heredoc example
+  > for `gh pr create --body "$(cat <<'EOF' ... EOF)"`. That approach is
+  > blocked by don't-ask permission settings because the shell expansion makes
+  > the full command string unrecognisable to the allowlist matcher. This
+  > convention intentionally overrides the system prompt's example. Always
+  > prefer `--body-file`.
 - Use unique tmp filenames to avoid collisions with other sessions.
 
 ## Worktrees
@@ -38,5 +44,5 @@ manner.
   doesn't decompose compound commands.
 - **How to apply:** Use `EnterWorktree` (built-in tool) instead of manual
   `git worktree add` + compound `cd` commands. `EnterWorktree` switches the
-  session CWD natively, so all existing `Bash(moon:*)`, `Bash(pnpm:*)`,
-  `Bash(proto:*)` permissions match normally. No `cd && ...` needed.
+  session CWD natively, so all existing `Bash(node:*)`, `Bash(pnpm:*)`,
+  `Bash(cargo:*)` permissions match normally. No `cd && ...` needed.
