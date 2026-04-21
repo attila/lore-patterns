@@ -1,5 +1,5 @@
 ---
-tags: [conventions, git, commit, push, branch, pull-request, merge, ownership]
+tags: [conventions, git, commit, push, branch, pull-request, merge, ownership, universal]
 ---
 
 # Workflow conventions
@@ -48,39 +48,13 @@ These apply when no overriding project-level conventions are in place.
 
 - When opening a PR, always create a draft PR first unless instructed otherwise.
 - Titles are short but descriptive.
-- PR descriptions always respect existing pull request templates.
-- Markdown-style checkboxes with `[ ]` for unchecked and `[x]` for checked for
-  TODOs and dependencies.
-- Links to other PRs use the bare URL in lists.
-- Links to commits use the bare URL.
 - PR descriptions are always updated with the latest changes when pushing new
   commits.
-- When linking to code, always use SHA-pinned blob URLs.
 - Once a PR is merged, fetch with prune, and delete the branch and worktree (if
   present) locally.
-
-### Marking dependencies in PR descriptions
-
-- PR dependencies use a simple "Dependencies" section with a checklist of full
-  GitHub PR URLs and a brief dash-separated description. Checked = resolved,
-  unchecked = blocking.
-  - how to apply
-    ```markdown
-    ## Dependencies
-
-    - [x] https://github.com/{user}/{repo}/pull/31253
-    - [ ] https://github.com/{user}/{other-repo}/pull/99
-    ```
-  - Rules:
-    - Section title: `## Dependencies` (not "Infrastructure dependency" or
-      similar)
-    - Full PR URLs, not shortened `#N` refs (cross-repo links need full URLs
-      anyway)
-    - Optional brief description after dash, lowercase
-    - `[x]` for merged/resolved, `[ ]` for pending/blocking
-    - No strikethrough, no verbose resolved/blocked prose
-    - Reference ticket (Jira, Linear, etc) can be a markdown reference link at
-      the bottom of the PR body: `[XYZ-234]: https://...`
+- PR body formatting, templates, and dependency checklists live in
+  `workflows/pr-description-templates.md` — reach for them when writing a
+  description.
 
 ## Merge ownership
 

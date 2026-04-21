@@ -1,5 +1,5 @@
 ---
-tags: [ agent, unattended, command, bash, composite, git, gh, pnpm, typescript ]
+tags: [ agent, unattended, command, bash, composite, git, gh, pnpm, typescript, universal ]
 ---
 
 # Unattended Work
