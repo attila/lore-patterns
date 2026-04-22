@@ -8,9 +8,13 @@ Formatting details for PR bodies. Reach for these when writing or updating a
 pull request description — they are not needed on every git-adjacent tool call,
 so they live outside the always-on `workflows/git-branch-pr.md` rules.
 
+## Before writing a PR description
+
+Search for `.github/pull_request_template.md` and use it as the starting
+structure. If no template exists, use the formatting rules below.
+
 ## PR body formatting
 
-- PR descriptions always respect existing pull request templates.
 - Markdown-style checkboxes with `[ ]` for unchecked and `[x]` for checked for
   TODOs and dependencies.
 - Links to other PRs use the bare URL in lists.

@@ -52,9 +52,8 @@ These apply when no overriding project-level conventions are in place.
   commits.
 - Once a PR is merged, fetch with prune, and delete the branch and worktree (if
   present) locally.
-- PR body formatting, templates, and dependency checklists live in
-  `workflows/pr-description-templates.md` — reach for them when writing a
-  description.
+- Before writing a PR description, read and follow
+  `workflows/pr-description-templates.md`.
 
 ## Merge ownership
 
