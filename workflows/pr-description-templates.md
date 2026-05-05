@@ -23,9 +23,10 @@ structure. If no template exists, use the formatting rules below.
 
 ## Marking dependencies in PR descriptions
 
-- PR dependencies use a simple "Dependencies" section with a checklist of full
-  GitHub PR URLs and a brief dash-separated description. Checked = resolved,
-  unchecked = blocking.
+- Use a "Dependencies" section with a checklist of bare GitHub PR URLs.
+  Checked = resolved, unchecked = blocking. GitHub auto-renders bare PR URLs
+  with title and status; manual descriptions duplicate that and go stale when
+  titles change.
   - how to apply
     ```markdown
     ## Dependencies
@@ -35,11 +36,11 @@ structure. If no template exists, use the formatting rules below.
     ```
   - Rules:
     - Section title: `## Dependencies` (not "Infrastructure dependency" or
-      similar)
-    - Full PR URLs, not shortened `#N` refs (cross-repo links need full URLs
-      anyway)
-    - Optional brief description after dash, lowercase
-    - `[x]` for merged/resolved, `[ ]` for pending/blocking
-    - No strikethrough, no verbose resolved/blocked prose
-    - Reference ticket (Jira, Linear, etc) can be a markdown reference link at
-      the bottom of the PR body: `[XYZ-234]: https://...`
+      similar).
+    - Full PR URLs only — no shortened `#N` refs, no manual title, description
+      or link text. Cross-repo links need full URLs anyway.
+    - `[x]` for merged/resolved, `[ ]` for pending/blocking.
+    - No strikethrough, no verbose resolved/blocked prose.
+    - Reference tickets (Jira, Linear, etc.) live as markdown reference links
+      at the bottom of the PR body: `[XYZ-234]: https://...`.
+
