@@ -91,7 +91,7 @@ Use these conventions every time when project rules are unclear or not enforced.
 
 ## Optional Properties in Return Values
 
-- Omit a key entirely rather than including it as `undefined`), use the
+- Omit a key entirely rather than including it as `undefined`, use the
   conditional spread pattern:
   `{ ...base, ...(value !== undefined ? { key: value } : {}) }`
 - Prefer this over `{ key: condition ? value : undefined }` — the latter leaves
