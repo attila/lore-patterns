@@ -18,6 +18,8 @@ sandboxed environment, for example:
 failed to get run log: creating cache directory: mkdir /Users/.../.cache: file exists
 ```
 
+Common with `gh run view --log-failed` and `gh run download <id>`.
+
 ## Action
 
 Set `XDG_CACHE_HOME` inline for the failing command, pointing at a writable
@@ -25,6 +27,8 @@ location:
 
 ```bash
 XDG_CACHE_HOME=/tmp/gh-cache gh run view <id> --log-failed
+XDG_CACHE_HOME=/tmp/gh-cache gh run download <id>
+XDG_CACHE_HOME=/tmp/gh-cache gh api repos/{owner}/{repo}/actions/runs/<id>/jobs
 ```
 
 Use a per-tool sub-directory (`/tmp/gh-cache`, `/tmp/cargo-cache`) so
