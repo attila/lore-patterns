@@ -1,5 +1,7 @@
 ---
 tags: [conventions, git, commit, push, branch, pull-request, merge, ownership, universal]
+applies_when:
+  bash_command_starts_with: [git, gh]
 ---
 
 # Workflow conventions
