@@ -1,5 +1,7 @@
 ---
 tags: [ agent, unattended, command, bash, composite, git, gh, pnpm, typescript, worktree, universal ]
+applies_when:
+  tools: [Bash]
 ---
 
 # Unattended Work
