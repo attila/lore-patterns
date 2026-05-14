@@ -1,5 +1,5 @@
 ---
-tags: [conventions, git, commit, push, branch, pull-request, merge, ownership, universal]
+tags: [conventions, git, commit, push, branch, pull-request, merge, ownership]
 applies_when:
   bash_command_starts_with: [git, gh]
 ---

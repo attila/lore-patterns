@@ -1,5 +1,5 @@
 ---
-tags: [ agent, unattended, command, bash, composite, git, gh, pnpm, typescript, worktree, universal ]
+tags: [ agent, unattended, command, bash, composite, git, gh, pnpm, typescript, worktree ]
 applies_when:
   tools: [Bash]
 ---
