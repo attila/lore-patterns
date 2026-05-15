@@ -45,6 +45,6 @@ grep to confirm the regeneration ran before merge.
 ## Counter-cases
 
 - Single-README repositories: the pattern collapses to a no-op.
-- Externally-hosted documentation (Notion, Confluence, dashboards): out of
-  scope for the in-repository grep; raise a follow-up checklist item if the
-  repository references external contracts.
+- Externally-hosted documentation (Notion, Confluence, dashboards): out of scope
+  for the in-repository grep; raise a follow-up checklist item if the repository
+  references external contracts.

@@ -1,4 +1,5 @@
 ---
+language: rust
 tags: [conventions, rust, licensing, edition, msrv, release, binary-size]
 ---
 

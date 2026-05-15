@@ -1,4 +1,5 @@
 ---
+language: rust
 tags: [rust, clippy, linting, code-quality]
 ---
 

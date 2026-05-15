@@ -16,22 +16,22 @@ Three signals together pin the diagnosis:
 2. Duration matches a configured timeout to the minute (commonly 15).
 3. `steps: []`, or no step past the runner-init phase.
 
-If all three hold, read the workflow file and look for `environment: <name>`.
-If present, the gate timed out waiting for an approver. The remedy is approval,
-not a code change.
+If all three hold, read the workflow file and look for `environment: <name>`. If
+present, the gate timed out waiting for an approver. The remedy is approval, not
+a code change.
 
 ```bash
 gh api repos/{owner}/{repo}/actions/runs/<id>/jobs
 ```
 
 **Why:** `gh pr checks` collapses `cancelled` into `fail`, which makes
-approval-gate timeouts indistinguishable from code failures at first glance.
-The three-signal triple is a high-precision fingerprint that rules out in-job
+approval-gate timeouts indistinguishable from code failures at first glance. The
+three-signal triple is a high-precision fingerprint that rules out in-job
 failures (image pull, test crash, network) before opening logs.
 
 **How to apply:** Before debugging a "failed" GitHub Actions run as a code
-defect, fetch the job JSON and check the triple. Drafts often do not trigger
-the approval flow until ready-for-review, which can race with the timeout.
+defect, fetch the job JSON and check the triple. Drafts often do not trigger the
+approval flow until ready-for-review, which can race with the timeout.
 
 ### Counter-cases
 
@@ -39,8 +39,8 @@ the approval flow until ready-for-review, which can race with the timeout.
   cancellation. Check `concurrency:` in the workflow and `gh run list` for a
   newer in-progress run on the same branch.
 - Manual cancellation via the UI: identical signature; check the run timeline.
-- Self-hosted runner offline: typically the duration is not a round-minute
-  match to a configured timeout.
+- Self-hosted runner offline: typically the duration is not a round-minute match
+  to a configured timeout.
 
 ## Re-trigger continuous integration without a new commit
 
@@ -57,10 +57,10 @@ mutate branch and pull-request history for no reason.
 **Why:** Manual rerun is a first-class primitive in every modern continuous
 integration provider. Reach for it whenever the diff is not the cause.
 
-**How to apply:** Combine with the timeout signature above — diagnose the
-gate, request approval, then `gh run rerun <id> --failed` to reopen the
-approval window. For other providers (CircleCI, Buildkite, GitLab) use the
-equivalent rerun primitive rather than an empty commit.
+**How to apply:** Combine with the timeout signature above — diagnose the gate,
+request approval, then `gh run rerun <id> --failed` to reopen the approval
+window. For other providers (CircleCI, Buildkite, GitLab) use the equivalent
+rerun primitive rather than an empty commit.
 
 ### Counter-cases
 

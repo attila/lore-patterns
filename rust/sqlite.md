@@ -1,4 +1,5 @@
 ---
+language: rust
 tags: [conventions, rust, sqlite, rusqlite, wal, sqlite-vec]
 ---
 
@@ -15,8 +16,8 @@ Set these pragmas on every new connection:
 
 - `journal_mode = WAL` — enables concurrent reads during writes.
 - `SYNCHRONOUS = NORMAL` — safe with WAL, avoids fsync on every commit.
-- `busy_timeout = 5000` — waits up to five seconds on lock contention instead
-  of failing immediately.
+- `busy_timeout = 5000` — waits up to five seconds on lock contention instead of
+  failing immediately.
 
 ## Register sqlite-vec once at process start
 

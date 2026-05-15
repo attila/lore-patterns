@@ -1,4 +1,5 @@
 ---
+language: rust
 tags: [rust, error-handling, anyhow, result]
 ---
 

@@ -1,5 +1,5 @@
 ---
-tags: [ agent, unattended, command, bash, composite, git, gh, pnpm, typescript, worktree ]
+tags: [agent, unattended, command, bash, composite, git, gh, pnpm, typescript, worktree]
 applies_when:
   tools: [Bash]
 ---
@@ -21,7 +21,7 @@ Matcher reads literal strings; runtime-expanded metacharacters break
   `Bash(<binary>:*)` patterns still match).
 - `mkdir {a,b}` below 5 paths — flagged; use separate calls.
 - `$(...)` in arguments — pre-compute from a prior tool result.
-- Stdio redirects — `run_in_background: true` for streams; tool flags for
-  files (`--output-file`, `--jq`, `--body-file`, `git commit -F`).
+- Stdio redirects — `run_in_background: true` for streams; tool flags for files
+  (`--output-file`, `--jq`, `--body-file`, `git commit -F`).
 - Heredocs on `gh pr create/edit --body` — write to a temp file, pass
   `--body-file`.

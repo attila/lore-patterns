@@ -1,4 +1,5 @@
 ---
+language: rust
 tags: [ci, github-actions, rust, toolchain]
 ---
 

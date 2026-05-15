@@ -1,4 +1,5 @@
 ---
+language: rust
 tags: [rust, testing, mocking, sqlite, fakes]
 ---
 

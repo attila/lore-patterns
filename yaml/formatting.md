@@ -1,4 +1,5 @@
 ---
+language: yaml
 tags: [yaml, yml, formatting, quotes]
 ---
 

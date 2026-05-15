@@ -1,4 +1,5 @@
 ---
+language: [javascript, typescript]
 tags: [testing, conventions, javascript, typescript, vitest, jest]
 ---
 

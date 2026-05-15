@@ -1,5 +1,6 @@
 ---
-tags: [ conventions, javascript, typescript, coding-style, import, export, jsdoc, errors ]
+language: [javascript, typescript]
+tags: [conventions, javascript, typescript, coding-style, import, export, jsdoc, errors]
 ---
 
 # JavaScript & TypeScript Coding Conventions

@@ -23,10 +23,10 @@ structure. If no template exists, use the formatting rules below.
 
 ## Marking dependencies in PR descriptions
 
-- Use a "Dependencies" section with a checklist of bare GitHub PR URLs.
-  Checked = resolved, unchecked = blocking. GitHub auto-renders bare PR URLs
-  with title and status; manual descriptions duplicate that and go stale when
-  titles change.
+- Use a "Dependencies" section with a checklist of bare GitHub PR URLs. Checked
+  = resolved, unchecked = blocking. GitHub auto-renders bare PR URLs with title
+  and status; manual descriptions duplicate that and go stale when titles
+  change.
   - how to apply
     ```markdown
     ## Dependencies
@@ -41,23 +41,21 @@ structure. If no template exists, use the formatting rules below.
       or link text. Cross-repo links need full URLs anyway.
     - `[x]` for merged/resolved, `[ ]` for pending/blocking.
     - No strikethrough, no verbose resolved/blocked prose.
-    - Reference tickets (Jira, Linear, etc.) live as markdown reference links
-      at the bottom of the PR body: `[XYZ-234]: https://...`.
-
+    - Reference tickets (Jira, Linear, etc.) live as markdown reference links at
+      the bottom of the PR body: `[XYZ-234]: https://...`.
 
 ## Linking to repo files (plan docs, READMEs, code)
 
 References to files in the same repo from a PR description must be full
-`https://github.com/<owner>/<repo>/blob/<ref>/<path>` URLs — never
-relative repo paths. Relative links resolve against the PR page URL,
-not the repo root, and render broken.
+`https://github.com/<owner>/<repo>/blob/<ref>/<path>` URLs — never relative repo
+paths. Relative links resolve against the PR page URL, not the repo root, and
+render broken.
 
 Format:
 
 `[`docs/plans/<file>.md`](https://github.com/<owner>/<repo>/blob/<branch>/docs/plans/<file>.md)`
 
-For code, use the SHA-pinned form (already covered above). For plan
-docs and other in-repo files referenced in the PR description, the
-branch-pinned form is acceptable while the PR is open; switch to a
-SHA-pinned URL if you need the link to remain valid after the branch
-is deleted.
+For code, use the SHA-pinned form (already covered above). For plan docs and
+other in-repo files referenced in the PR description, the branch-pinned form is
+acceptable while the PR is open; switch to a SHA-pinned URL if you need the link
+to remain valid after the branch is deleted.

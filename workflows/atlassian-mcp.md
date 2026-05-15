@@ -1,5 +1,5 @@
 ---
-tags: [ atlassian, jira, mcp, best-practice, semantics ]
+tags: [atlassian, jira, mcp, best-practice, semantics]
 ---
 
 # Atlassian MCP createIssueLink has swapped inward/outward semantics
