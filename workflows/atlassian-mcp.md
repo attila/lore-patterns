@@ -1,26 +1,34 @@
 ---
-tags: [atlassian, jira, mcp, best-practice, semantics]
+tags: [ atlassian, jira, mcp, best-practice, semantics ]
 ---
 
 # Atlassian MCP createIssueLink has swapped inward/outward semantics
 
-When creating "Blocks" links via MCP, inwardIssue is the BLOCKER and
-outwardIssue is the BLOCKED issue — opposite of intuition.
+# Atlassian MCP createIssueLink has swapped inward/outward semantics
 
-The `mcp__claude_ai_Atlassian__createIssueLink` tool has **swapped semantics**
-for `inwardIssue` and `outwardIssue` compared to what the Jira API documentation
-suggests.
+For directional Jira link types, `inwardIssue` is the SUBJECT of the outward
+verb and `outwardIssue` is the OBJECT — opposite of intuition.
 
-To create **"A blocks B"** (A is a prerequisite for B):
+The `mcp__claude_ai_Atlassian__createIssueLink` tool's `inwardIssue` /
+`outwardIssue` naming reads as grammatical direction but actually encodes the
+sentence's subject/object:
 
-- `inwardIssue: A` (the blocker / prerequisite)
-- `outwardIssue: B` (the blocked / dependent)
+> `inwardIssue` [outward verb] `outwardIssue`
 
-**Why:** Discovered on 2026-03-12 when all dependency links from a plan were
-created backwards. The MCP tool's parameter naming is counterintuitive —
-`inwardIssue` maps to the outward (blocker) side in Jira's UI, and
-`outwardIssue` maps to the inward (blocked) side.
+**Empirically confirmed** for these link types:
 
-**How to apply:** Every time you use `createIssueLink` with type "Blocks",
-remember to swap: the blocker goes in `inwardIssue`, the blocked goes in
-`outwardIssue`. Verify by reading one ticket after creating links.
+| Link type | outward verb | inwardIssue is…               | outwardIssue is…            |
+| --------- | ------------ | ----------------------------- | --------------------------- |
+| Blocks    | blocks       | the blocker / prerequisite    | the blocked / dependent     |
+| Duplicate | duplicates   | the redundant / lesser ticket | the canonical / kept ticket |
+
+**Why:** Originally discovered 2026-03-12 with "Blocks" links created backwards.
+Re-confirmed 2026-05-19 with a "Duplicate" link created backwards on SLP-2404 →
+SLP-2426 — same shape, same trap.
+
+**How to apply:** Before every `createIssueLink` call, write the sentence in
+English using the outward verb, then assign the subject to `inwardIssue` and the
+object to `outwardIssue`. Verify by reading one of the two tickets after
+creating the link. **If using a link type not in the table above** (Clones,
+Problem/Incident, Issue split, Relates, etc.), test the orientation with a
+throwaway link first — the pattern is likely but unverified.
