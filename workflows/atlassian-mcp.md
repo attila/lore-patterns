@@ -17,10 +17,11 @@ sentence's subject/object:
 
 **Empirically confirmed** for these link types:
 
-| Link type | outward verb | inwardIssue is…               | outwardIssue is…            |
-| --------- | ------------ | ----------------------------- | --------------------------- |
-| Blocks    | blocks       | the blocker / prerequisite    | the blocked / dependent     |
-| Duplicate | duplicates   | the redundant / lesser ticket | the canonical / kept ticket |
+| Link type        | outward verb | inwardIssue is…                                  | outwardIssue is…                             |
+| ---------------- | ------------ | ------------------------------------------------ | -------------------------------------------- |
+| Blocks           | blocks       | the blocker / prerequisite                       | the blocked / dependent                      |
+| Duplicate        | duplicates   | the redundant / lesser ticket                    | the canonical / kept ticket                  |
+| Problem/Incident | causes       | the causer (i.e. the regression-introducing one) | the "caused-by" (i.e. the regression ticket) |
 
 **Why:** Originally discovered 2026-03-12 with "Blocks" links created backwards.
 Re-confirmed 2026-05-19 with a "Duplicate" link created backwards on SLP-2404 →
