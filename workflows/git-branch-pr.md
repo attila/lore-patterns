@@ -56,6 +56,9 @@ These apply when no overriding project-level conventions are in place.
   present) locally.
 - Before writing a PR description, read and follow
   `workflows/pr-description-templates.md`.
+- A squash-merged PR leaves the feature branch a not an ancestor of the base,
+  `git branch -d` refuses it. Delete merged feature branches with
+  `git branch -D`
 
 ## Merge ownership
 
