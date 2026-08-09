@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# Activate this repo's pre-commit hook (the dprint formatting gate).
+# Idempotent; safe to re-run.
+
+git config core.hooksPath .githooks
+echo "hooks activated: core.hooksPath -> .githooks"
