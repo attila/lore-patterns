@@ -1,5 +1,5 @@
 ---
-tags: [ci, github-actions, triage, environment, gate, cancelled, timeout, gh, rerun, approval]
+tags: [ci, github-actions, triage, environment, gate, cancelled, timeout, gh, rerun, approval, paths, filter, pull-request]
 ---
 
 # GitHub Actions triage
@@ -67,3 +67,17 @@ rerun primitive rather than an empty commit.
 - Failure caused by the diff: rerun will not help; fix the code.
 - Some `pull_request_target` or reusable-workflow setups behave differently on
   manual rerun. Confirm via `gh run list` after triggering.
+
+## `paths:` on `pull_request` matches the cumulative diff
+
+GitHub Actions evaluates `paths:` and `paths-ignore:` against the pull request's
+whole diff versus its base branch, not the triggering push. A job stays
+triggered by what an earlier commit on the branch touched, and an in-branch
+revert does not switch it off. On `push` the range is the push.
+
+Symptoms: a job keeps running after an in-branch revert, or `paths-ignore` looks
+broken because the workflow keeps running on unrelated changes.
+
+Compute the changed set inside the job when a single push must drive it —
+`git diff --name-only` against `github.event.before` on `push`, against the
+merge base otherwise or after a force-push.
