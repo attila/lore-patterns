@@ -48,3 +48,11 @@ grep to confirm the regeneration ran before merge.
 - Externally-hosted documentation (Notion, Confluence, dashboards): out of scope
   for the in-repository grep; raise a follow-up checklist item if the repository
   references external contracts.
+
+## Renaming a domain term
+
+A domain-term rename reaches past the repository: issues written in the old
+vocabulary carry it in their bodies even when the title does not, and so do the
+project's planning documents. Search issue bodies and project documents, not
+only titles, and tell the renamed noun apart from other senses of the word.
+Leave merged or ratified records as written.

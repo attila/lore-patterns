@@ -33,6 +33,14 @@ Use these conventions every time when project rules are unclear or not enforced.
 - Avoid non-null assertions; work around them, or use a utility like
   `isNotNil<T>(input: T | null | undefined): input is T`
 - Use type guards instead of `as`
+- TypeScript that Node runs directly, through its built-in type stripping, must
+  be erasable syntax only: Node strips types rather than transpiling, so `enum`,
+  namespaces with runtime code and constructor parameter properties pass `tsc`
+  and fail when Node loads the file. So does a type imported without
+  `import type`, with "does not provide an export named". Set
+  `"erasableSyntaxOnly": true` and `"verbatimModuleSyntax": true` in that code's
+  tsconfig so the typecheck catches them. Keep decorators out of such code: Node
+  does not parse them. Bundled code is unaffected.
 
 ## Functions
 

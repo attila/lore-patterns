@@ -17,3 +17,14 @@ reviewers to re-engage with code they already signed off on.
 just "open a new PR", follow that instruction literally. If the user has been
 working in a related context, surface the link ("there's an open PR #123 on the
 same area") but stop there. Ask before modifying any branch with an open PR.
+
+## Follow-on documentation for an open PR
+
+When documentation-only follow-on work belongs to the same ticket as an open PR,
+don't decide alone between adding to it and opening a new one. Ask once ("on the
+open PR or a separate one?") and propose one by the PR's state. For a draft or
+unreviewed PR, propose adding to it: additive commits rewrite no history. For an
+approved PR, propose a separate one, because a new commit can dismiss existing
+approvals and force a fresh review. A separate PR also fits when the
+documentation is unrelated to the PR's ticket or reviewers have drawn a tight
+scope line.

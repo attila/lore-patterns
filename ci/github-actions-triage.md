@@ -81,3 +81,11 @@ broken because the workflow keeps running on unrelated changes.
 Compute the changed set inside the job when a single push must drive it —
 `git diff --name-only` against `github.event.before` on `push`, against the
 merge base otherwise or after a force-push.
+
+## Quote run logs when citing them as evidence
+
+Actions logs expire, so a link to a run stops proving anything after a while.
+When a pull request or ticket comment cites a run as evidence, quote the lines
+that prove the claim in a collapsed `<details>` block beside the link. Pull them
+with `gh run view <id> --log` and strip ANSI codes and step prefixes. Records
+that do not expire, such as deployment statuses, can stay as links.
